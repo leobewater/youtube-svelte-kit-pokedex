@@ -17,24 +17,26 @@
 			};
 		});
 
+		// returns result to props: pokemon variable
 		return { props: { pokemon: loadedPokemon } };
 	}
 </script>
 
 <script>
 	//import { pokemon } from '../stores/pokestore.js';
-	import PokemanCard from '../components/pokemanCard.svelte';
-
-	export let pokemon;
-
 	// console.log($pokemon); // add "$" make it reactive
+
+	import PokemanCard from '../components/pokemanCard.svelte';
+	
+	// set this as props
+	export let pokemon;
 
 	let searchTerm = '';
 	let filteredPokemon = [];
 
-	// make reactive
+	// run this when searchTerm has changed
 	$: {
-		console.log(searchTerm);
+		// console.log(searchTerm);
 		if (searchTerm) {
 			// search and filter the pokemon
 			filteredPokemon = pokemon.filter((pokeman) =>
